@@ -18,3 +18,9 @@ examples thus some of the code is Copyright © 2001-2013 Python
 Software Foundation; All Rights Reserved under the PSF license (GPL
 compatible) http://docs.python.org/2/library/socketserver.html
 
+
+Citations:
+GitHub User: poulomi-g
+https://github.com/poulomi-g
+https://github.com/poulomi-g/CMPUT404-assignment-web-client/blob/main/httpclient.py
+
