@@ -154,7 +154,7 @@ class TestHTTPClient(unittest.TestCase):
             print("run_server: Thread died")
 
 
-
+    # # ''''''
     def test404GET(self):
         '''Test against 404 errors'''
         MyHTTPHandler.get = nothing_available
@@ -180,6 +180,7 @@ class TestHTTPClient(unittest.TestCase):
         req = http.GET( url )
         self.assertTrue(req != None, "None Returned!")
         self.assertTrue(req.code == 200)
+        print("REQ BODY", type(req.body))  #empty string
         self.assertTrue(req.body.find(path)>=0, "Data: [%s] " % req.body)
 
     def testGETHeaders(self):
@@ -206,7 +207,7 @@ class TestHTTPClient(unittest.TestCase):
 
         
         
-    # consider disabling this test until everything else works
+    # # consider disabling this test until everything else works
     def testInternetGets(self):
         '''Test HTTP Get in the wild, these webservers are far less
            forgiving'''
@@ -251,7 +252,10 @@ class TestHTTPClient(unittest.TestCase):
         print("Test Post Body: [%s]" % req.body)
         outargs = json.loads(req.body)
         print(outargs.__class__)
+        print("KEYS IN ARGS",args)
+        print("KEYS IN OUTARGS", outargs)
         for key in args:
+            #print("ARGS KEY",args[key], "OUTATGS KEY 0", outargs[key][0], "KEY", key )
             self.assertTrue(args[key] == outargs[key][0], "Key [%s] not found" % key)
         for key in outargs:
             self.assertTrue(args[key] == outargs[key][0], "Key [%s] not found" % key)
